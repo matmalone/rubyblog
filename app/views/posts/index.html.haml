@@ -1,0 +1,24 @@
+- content_for :title do
+  Index
+%table{:style => "width:100%;background-color:#ff0000;height:50px"}
+  %tr
+    %td= render :partial => 'header', :collection => @posts, :as => :post, :locals => { :foo => 'Blah'  }
+%h1 Listing posts in haml
+%table.hamltablecls#hamltable
+  %tr{:align => "left"}
+    %th Name
+    %th Title
+    %th Content
+    %th
+    %th
+    %th
+      - @posts.each do |post|
+        %tr
+          %td= post.name
+          %td= post.title
+          %td= post.content
+          %td= link_to 'Show', post
+          %td= link_to 'Edit', edit_post_path(post)
+          %td= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New Post', new_post_path
