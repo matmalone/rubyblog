@@ -1,26 +1,38 @@
 class PostsController < ApplicationController
-
+  layout "posts"
   http_basic_authenticate_with :name => "mmalone", :password => "pass", :except => :index
   
   # GET /posts
   # GET /posts.json
   def index
+    #session[:foo] = 'bar'
+    
     @posts = Post.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @posts }
-    end
+    @p = Post.last
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render :json => @posts }
+    # end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @post }
+    begin
+      @post = Post.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    end
+      
+    if not @post.nil?
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render :json => @post }
+      end
+    else
+      @posts = Post.all
+      flash[:notice] = "wtf?"
+      #flash.keep(:notice)
+      render :index
     end
   end
 

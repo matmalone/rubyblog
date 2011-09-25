@@ -1,3 +1,14 @@
+<% content_for :title do %>
+ Index
+<% end %>
+  <table style="width:100%;background-color:#ff0000;height:50px">
+    <tr><td>
+        <%= render :partial => 'header', :collection => @posts,
+        :as => :post, :locals => { :foo => 'Blah'  }  %>
+    </td></tr>
+  </table>
+
+  <%= session[:foo] %>
 <h1>Listing posts</h1>
 
 <table>
