@@ -1,0 +1,27 @@
+- @post.tags.build
+= form_for(@post) do |post_form|
+  - if @post.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@post.errors.count, "error")
+        prohibited this post from being saved:
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = post_form.label :name
+    %br/
+    = post_form.text_field :name
+  .field
+    = post_form.label :title
+    %br/
+    = post_form.text_field :title
+  .field
+    = post_form.label :content
+    %br/
+    = post_form.text_area :content
+  %h2 Tags
+  = render :partial => 'tags/form', |
+    :locals => {:form => post_form} |
+  .actions
+    = post_form.submit

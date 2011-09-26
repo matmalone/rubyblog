@@ -1,0 +1,21 @@
+%p.notice= notice
+%p
+  %b Name:
+  = @post.name
+%p
+  %b Title:
+  = @post.title
+%p
+  %b Content:
+  = @post.content
+%p
+  %b Tags:
+  = join_tags(@post)
+%h2 Comments
+= render @post.comments
+%h2 Add a comment:
+= render "comments/form"
+%br/
+= link_to 'Edit Post', edit_post_path(@post)
+|
+\#{link_to 'Back to Posts', posts_path} |

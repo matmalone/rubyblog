@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title
+      = yield :title
+      \- Blog
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application", "foobar", :cache => true
+    = csrf_meta_tags
+  %body{:style => "background: #ccccff;"}
+    - flash.each do |k, v|
+      %div{:id => k}= v
+    = yield
