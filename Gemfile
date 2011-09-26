@@ -30,3 +30,4 @@ gem 'haml'
 # To use debugger
 # gem 'ruby-debug'
 
+gem 'devise'

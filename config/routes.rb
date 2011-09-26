@@ -1,6 +1,11 @@
 Blog::Application.routes.draw do
   root :to => 'home#index'
 
+  devise_for :users
+  devise_scope :user do
+    get "/users/logout" => "devise/sessions#destroy"
+  end
+  
   resources :posts do
     resources :comments
   end

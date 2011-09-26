@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   layout "posts"
-  http_basic_authenticate_with :name => "mmalone", :password => "pass", :except => :index
+  #http_basic_authenticate_with :name => "mmalone", :password => "pass", :except => :index
+  before_filter :authenticate_user!
   
   # GET /posts
   # GET /posts.json
