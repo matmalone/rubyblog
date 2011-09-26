@@ -3,7 +3,7 @@ Blog::Application.routes.draw do
 
   devise_for :users
   devise_scope :user do
-    get "/users/logout" => "devise/sessions#destroy"
+    get "/users/sign_out" => "devise/sessions#destroy"
   end
   
   resources :posts do

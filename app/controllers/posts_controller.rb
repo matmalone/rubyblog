@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   layout "posts"
-  #http_basic_authenticate_with :name => "mmalone", :password => "pass", :except => :index
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   
   # GET /posts
   # GET /posts.json
@@ -9,7 +8,6 @@ class PostsController < ApplicationController
     #session[:foo] = 'bar'
     
     @posts = Post.all
-    @p = Post.last
     # respond_to do |format|
     #   format.html # index.html.erb
     #   format.json { render :json => @posts }
@@ -31,7 +29,7 @@ class PostsController < ApplicationController
       end
     else
       @posts = Post.all
-      flash[:notice] = "wtf?"
+      flash[:notice] = "Post not found"
       #flash.keep(:notice)
       render :index
     end

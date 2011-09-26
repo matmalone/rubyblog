@@ -5,9 +5,13 @@
     $color: #ffffff;
 
     background-color: $color;
-
+    
     
     td {
         color: darken($color, 50%);
     }
+}
+
+.welcome {
+    text-align: right;
 }

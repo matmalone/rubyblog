@@ -10,4 +10,11 @@
   %body{:style => "background: #ccccff;"}
     - flash.each do |k, v|
       %div{:id => k}= v
+
+    .welcome
+      Welcome, 
+      = current_user.email
+    
     = yield
+    
+    
