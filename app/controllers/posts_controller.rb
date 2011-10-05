@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   layout "posts"
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   
   # GET /posts
   # GET /posts.json
