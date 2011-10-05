@@ -6,9 +6,9 @@
 #
 user1:
  email: user1@domain.org
- encrypted_password: x
+# encrypted_password: crypt1
  
 user2:
  email: user2@domain.org
- encrypted_password: x
+# encrypted_password: crypt2
  

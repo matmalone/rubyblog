@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+
+  include Devise::TestHelpers
+  
   setup do
-    @post = posts(:one)
+    sign_in users(:user1)
+
+    @post = posts(:one)    
   end
 
   test "should get index" do
