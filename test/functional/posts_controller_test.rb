@@ -27,6 +27,19 @@ class PostsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to post_path(assigns(:post))
+
+    assert_match(/successfully created/, flash[:notice])
+  end
+
+  test "should not create post with short title" do
+    assert_response :success
+
+    assert_difference('Post.count', 0) do
+      attr = @post.attributes
+      attr[:title] = 't'
+      post :create, :post => attr
+    end
+
   end
 
   test "should show post" do
