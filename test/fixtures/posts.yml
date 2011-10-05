@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  title: MyString
-  content: MyText
+  name: My Name 1
+  title: My Title 1
+  content: My Content 1
 
 two:
-  name: MyString
-  title: MyString
-  content: MyText
+  name: My Name 2
+  title: My Title 2
+  content: My Content 2
