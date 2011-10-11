@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'integration/test_integration_helper'
 
 class UserFlowsTest < ActionDispatch::IntegrationTest
   fixtures :all
@@ -18,9 +19,13 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test "login" do
-    #post_via_redirect '/users/sign-in', :user_email =>
-    #users(:user2).email, :user_password => users(:user2).password
-    #get_sign_in_page
-    
+    sign_in_as 'foo@bar.com', 'blahblah'
+    assert_equal flash[:notice], "Signed in successfully."
+  end
+  
+  test "index" do
+    sign_in_as 'foo@bar.com', 'blahblah'
+    get '/posts'
+    assert_select 'h1', 'Listing posts in haml'
   end
 end
