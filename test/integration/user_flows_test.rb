@@ -25,6 +25,7 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
   
   test "index" do
     sign_in_as 'foo@bar.com', 'blahblah'
+    sign_out
     get '/posts'
     assert_select 'h1', 'Listing posts in haml'
   end
