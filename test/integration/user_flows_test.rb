@@ -5,9 +5,9 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
   fixtures :all
   #include Devise::TestHelpers
 
-#  setup do
-#    sign_in users(:user1)
-#  end
+  setup do
+    #sign_in_as 'foo@bar.com', 'blahblah'
+  end
   
   test "view home" do
     get "/"
@@ -25,7 +25,6 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
   
   test "index" do
     sign_in_as 'foo@bar.com', 'blahblah'
-    sign_out
     get '/posts'
     assert_select 'h1', 'Listing posts in haml'
   end
