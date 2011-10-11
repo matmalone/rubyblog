@@ -23,9 +23,10 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_equal flash[:notice], "Signed in successfully."
   end
   
-  test "index" do
+  test "login and get posts index" do
     sign_in_as 'foo@bar.com', 'blahblah'
     get '/posts'
+    assert_response :success
     assert_select 'h1', 'Listing posts in haml'
   end
 end
