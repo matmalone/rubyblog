@@ -31,3 +31,5 @@ gem 'haml'
 # gem 'ruby-debug'
 
 gem 'devise'
+
+gem 'capybara'

@@ -10,23 +10,23 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
   end
   
   test "view home" do
-    get "/"
-    assert_response :success
+    visit "/"
+    assert_equal page.status_code, 200
 
-    assert_select 'h1', /Hello, World/
+    assert page.has_selector? 'h1', :text => 'Hello, World'
     assert https!
-    assert_select 'a', /My Blog/
+    assert page.has_link? 'My Blog'
   end
 
   test "login" do
     sign_in_as 'foo@bar.com', 'blahblah'
-    assert_equal flash[:notice], "Signed in successfully."
+    assert page.has_selector? 'p.notice', :text => /Signed in successfully.$/
   end
   
   test "login and get posts index" do
     sign_in_as 'foo@bar.com', 'blahblah'
-    get '/posts'
-    assert_response :success
-    assert_select 'h1', 'Listing posts in haml'
+    visit '/posts'
+    assert_equal page.status_code, 200
+    assert page.has_selector? 'h1', :text => 'Listing posts in haml'
   end
 end
