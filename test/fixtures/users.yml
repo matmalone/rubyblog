@@ -6,12 +6,10 @@
 #
 user1:
  email: user1@domain.org
- encrypted_password: $2a$10$JCJOnIi4I5FDEiKn91QrGOM.3c.L4r9Y24EOvKDaAHK0...
+ #password1
+ encrypted_password: $2a$10$1as50GTkPh8fzEpzP6h.juOXhwtA3vfBJzfzJ/5p74fHQ1v45ufme
 
 user2:
  email: user2@domain.org
-# encrypted_password: crypt2
-
-# foo:
-#  email: foo@bar.com
-#  encrypted_password: $2a$04$d5Md9Odfj1UpegoeeHIQveeYwmOwiXKh0/E3OhWjI8YG...
+ #password2
+ encrypted_password: $2a$04$ER.xZAjzCzCk30nJT46N7urRTrCjgG9TcyrER/9WAJ/cmH93JT7L.
