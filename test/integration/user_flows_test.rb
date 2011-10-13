@@ -45,3 +45,4 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert page.has_selector? 'p.notice', :text => 'Post was successfully created.'
   end
 end
+
