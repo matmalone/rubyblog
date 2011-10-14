@@ -5,7 +5,7 @@ module ActionDispatch
   class IntegrationTest
 
     include Capybara::DSL
-    Capybara.default_driver = :selenium
+    Capybara.javascript_driver = :webkit
     
     # login with the given username and password
     def sign_in_as(email, password)

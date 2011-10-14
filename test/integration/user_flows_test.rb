@@ -3,14 +3,14 @@ require 'integration/test_integration_helper'
 
 class UserFlowsTest < ActionDispatch::IntegrationTest
   fixtures :all
-  #include Devise::TestHelpers
 
   def setup
     #sign_in_as 'user1@domain.org', 'password1'
   end
 
   def teardown
-    #sign_out
+    #Capybara.reset_sessions!
+    Capybara.use_default_driver    
   end
   
   test "view home" do
@@ -31,6 +31,14 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     sign_in_as 'user1@domain.org', 'password1'
     click_on "My Blog"
     assert page.has_selector? 'h1', :text => 'Listing posts in haml'
+  end
+
+  test "Home button" do
+    Capybara.current_driver = Capybara.javascript_driver
+    sign_in_as 'user1@domain.org', 'password1'
+    click_on "My Blog"
+    click_on "Home"
+    assert page.has_selector? 'h1', :text => 'Hello, World'    
   end
 
   test 'new post' do
