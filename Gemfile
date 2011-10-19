@@ -5,7 +5,15 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+  gem 'capybara'
+  gem 'capybara-webkit'
+end
+
+group :production do
+  gem 'pg'
+end
 
 gem 'json'
 
@@ -31,8 +39,3 @@ gem 'haml'
 # gem 'ruby-debug'
 
 gem 'devise'
-
-gem 'capybara'
-#gem 'capybara-webkit'
-
-gem 'pg'
