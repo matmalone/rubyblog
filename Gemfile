@@ -34,3 +34,5 @@ gem 'devise'
 
 gem 'capybara'
 #gem 'capybara-webkit'
+
+gem 'pg'
