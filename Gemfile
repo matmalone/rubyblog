@@ -33,4 +33,4 @@ gem 'haml'
 gem 'devise'
 
 gem 'capybara'
-gem 'capybara-webkit'
+#gem 'capybara-webkit'
